@@ -1,4 +1,4 @@
-# Explaining Natural Language Inference with Factual and Template Memory Networks
+# Explaining Natural Language Inference with EPR
 
 ## 1. Setup enviroment 
 ```bash
