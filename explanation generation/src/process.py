@@ -142,29 +142,6 @@ def processData(p_data,dump_file):
         pickle.dump(es,db)
     print(f"embeded to {dump_file} hypothesis")
     return
-
-
-def datasetProcess(file,out_file):
-    new = []
-    with open(file,'r',encoding='utf-8') as data:
-        with open(out_file,'w',encoding='utf-8',newline='') as out:
-            reader = csv.reader(data)
-            writer = csv.writer(out,delimiter=';')
-
-            next(reader)
-            writer.writerow(['prompt','explanation1','explanation2','explanation3','label'])
-            for line in reader:
-                
-                promptID = line[0]
-                label = line[1]
-                expl1 = line[4]
-                expl2 = line[9]
-                expl3 = line[14]
-                prompt = f'premise: {line[2].lower()} hypothesis: {line[3].lower()}'
-                writer.writerow([promptID,prompt,expl1,expl2,expl3,label])
-                
-            
-                new.append(label)
     
 
     return
