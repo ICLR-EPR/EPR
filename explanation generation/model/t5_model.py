@@ -757,7 +757,9 @@ class T5Block(nn.Module):
             cross_attn_past_key_value = past_key_value[2:]
         else:
             self_attn_past_key_value, cross_attn_past_key_value = None, None
-      
+        
+        do_cross_attention = self.is_decoder and encoder_hidden_states is not None
+            
         if do_cross_attention:
             adapter_input = self.layer[2](hidden_states,step_size)
             hidden_states = self.layer[3](hidden_states,adapter_input)
